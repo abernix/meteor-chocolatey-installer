@@ -19,12 +19,12 @@ Write-Host "Trying to install $($nupkg.FullName)..." `
 If ($releaseVersion) {
   & choco.exe install meteor --force --yes -d `
     --allow-downgrade `
-    --source $buildDirectory `
-    --params="'/Release:${releaseVersion}'"
+    --params="'/Release:${releaseVersion}'" `
+    --source "'$buildDirectory;https://chocolatey.org/api/v2/'"
 } Else {
   & choco.exe install meteor --force --yes -d `
     --allow-downgrade `
-    --source $buildDirectory
+    --source "'$buildDirectory;https://chocolatey.org/api/v2/'"
 }
 
 Write-Host "The result was '$result'"
