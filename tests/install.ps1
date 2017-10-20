@@ -2,9 +2,6 @@ Param(
   [string]$releaseVersion
 )
 
-Write-Host "Installing chocolatey-core extensions..." -ForegroundColor Magenta
-& choco.exe install chocolatey-core.extension
-
 $checkoutDirectory = (Get-Item $PSScriptRoot).parent.FullName
 $buildDirectory = Join-Path $checkoutDirectory 'build'
 
