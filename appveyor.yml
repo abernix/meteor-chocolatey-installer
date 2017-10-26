@@ -31,8 +31,8 @@ after_build:
       Push-AppveyorArtifact $n.FullName -DeploymentName Nupkg
 
 test_script:
-  - ps: .\tests\install.ps1
-  - ps: .\tests\run-meteor-version.ps1
+  - ps: powershell -version 2 .\tests\install.ps1
+  - ps: powershell -version 2 .\tests\run-meteor-version.ps1
   - ps: .\tests\uninstall.ps1
   # Make sure that it's no longer installed.
   - ps: If (.\tests\run-meteor-version.ps1) { throw }
